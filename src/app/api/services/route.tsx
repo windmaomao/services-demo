@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { ServiceDTO } from "@/types";
 
-const data = [
+const data: ServiceDTO[] = [
   {
     id: "oil",
     title: "Synthetic Oil Change",
