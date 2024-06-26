@@ -7,8 +7,14 @@ import styles from "./ServiceSelect.module.css";
 
 interface ServiceSelectProps {
   service: ServiceDTO;
+  isOpen: boolean;
+  toggle: () => void;
 }
-export default function Services({ service }: ServiceSelectProps) {
+export default function ServiceSelect({
+  service,
+  isOpen,
+  toggle,
+}: ServiceSelectProps) {
   const { id, name } = service;
   const [available, setAvailable] = useState<any[]>();
 
@@ -21,21 +27,23 @@ export default function Services({ service }: ServiceSelectProps) {
       <div className={styles.title}>
         <div>pic-{id}</div>
         <h2 className={styles.label}>{name}</h2>
-        <span className={styles.arrow}>
+        <button className={styles.arrow} onClick={toggle}>
           <ChevronIcon />
-        </span>
+        </button>
       </div>
-      <div className={styles.book}>
-        <h3 className={styles.description}>Available Appointments</h3>
-        <div className={styles.items}>
-          {available?.map((v, i) => (
-            <p key={i} className={styles.item}>
-              {v}
-            </p>
-          ))}
+      {isOpen && (
+        <div className={styles.book}>
+          <h3 className={styles.description}>Available Appointments</h3>
+          <div className={styles.items}>
+            {available?.map((v, i) => (
+              <p key={i} className={styles.item}>
+                {v}
+              </p>
+            ))}
+          </div>
+          <button className={styles.action}>Book Now</button>
         </div>
-        <button className={styles.action}>Book Now</button>
-      </div>
+      )}
     </div>
   );
 }

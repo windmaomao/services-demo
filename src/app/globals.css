@@ -10,6 +10,10 @@ body {
   font-family: Tahoma, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
