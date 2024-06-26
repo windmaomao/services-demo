@@ -1,33 +1,27 @@
 import { NextResponse } from "next/server";
 import { ServiceDTO } from "@/types";
 
+const available = [
+  "Monday, May 5th 08:00 AM",
+  "Monday, May 5th 10:00 AM",
+  "Tuesday, May 6th 02:00 PM",
+];
+
 const data: ServiceDTO[] = [
   {
     id: "oil",
-    title: "Synthetic Oil Change",
-    available: [
-      "Monday, May 5th 08:00 AM",
-      "Monday, May 5th 10:00 AM",
-      "Tuesday, May 6th 02:00 PM",
-    ],
+    name: "Synthetic Oil Change",
+    duration: 3600,
   },
   {
     id: "tire",
-    title: "Tire Rotation & Inspection",
-    available: [
-      "Monday, May 5th 08:00 AM",
-      "Monday, May 5th 10:00 AM",
-      "Tuesday, May 6th 02:00 PM",
-    ],
+    name: "Tire Rotation & Inspection",
+    duration: 7200,
   },
   {
     id: "detail",
-    title: "Express Auto Detailing",
-    available: [
-      "Monday, May 5th 08:00 AM",
-      "Monday, May 5th 10:00 AM",
-      "Tuesday, May 6th 02:00 PM",
-    ],
+    name: "Express Auto Detailing",
+    duration: 4800,
   },
 ];
 
