@@ -23,11 +23,15 @@ export default function ServiceSelect({
   }, []);
 
   return (
-    <div className={styles.panel}>
+    <div className={styles.panel} role="listitem" data-testid="service-item">
       <div className={styles.title}>
         <div>pic-{id}</div>
         <h2 className={styles.label}>{name}</h2>
-        <button className={styles.arrow} onClick={toggle}>
+        <button
+          className={styles.arrow}
+          onClick={toggle}
+          data-testid="service-toggle"
+        >
           <ChevronIcon />
         </button>
       </div>
@@ -36,7 +40,11 @@ export default function ServiceSelect({
           <h3 className={styles.description}>Available Appointments</h3>
           <div className={styles.items}>
             {available?.map((v, i) => (
-              <p key={i} className={styles.item}>
+              <p
+                key={i}
+                className={styles.item}
+                data-testid="service-appointment"
+              >
                 <div className={styles.circle}>&nbsp;</div>
                 <span>{v}</span>
               </p>
