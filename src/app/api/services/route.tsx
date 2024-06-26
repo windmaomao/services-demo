@@ -1,12 +1,6 @@
 import { NextResponse } from "next/server";
 import { ServiceDTO } from "@/types";
 
-const available = [
-  "Monday, May 5th 08:00 AM",
-  "Monday, May 5th 10:00 AM",
-  "Tuesday, May 6th 02:00 PM",
-];
-
 const data: ServiceDTO[] = [
   {
     id: "oil",

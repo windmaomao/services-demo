@@ -21,6 +21,10 @@
 
 .arrow {
   color: var(--primary-color);
+  transition: all 0.3s ease-out;
+}
+.open {
+  transform: rotate(180deg);
 }
 
 .book {
@@ -36,8 +40,8 @@
 .items {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 2px 5px;
+  gap: 2px;
+  padding: 4px 5px;
 }
 
 .item {
@@ -58,7 +62,7 @@
 }
 
 .action {
-  margin-top: 10px;
+  margin-top: 4px;
   background-color: var(--primary-color);
   border-radius: 4px;
   color: white;

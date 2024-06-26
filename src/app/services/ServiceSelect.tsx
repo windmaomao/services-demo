@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import cn from "classnames";
 import { ServiceDTO } from "@/types";
 import { GetAppointments } from "@/services";
 import ChevronIcon from "./ChevronIcon";
@@ -22,13 +24,22 @@ export default function ServiceSelect({
     GetAppointments().then(data => setAvailable(data));
   }, []);
 
+  const arrowClassname = cn(styles.arrow, { [styles.open]: isOpen });
+
   return (
     <div className={styles.panel} role="listitem" data-testid="service-item">
       <div className={styles.title}>
-        <div>pic-{id}</div>
+        <Image
+          src={`/${id}.jpg`}
+          width={80}
+          height={80}
+          alt="oil"
+          placeholder="empty"
+          priority={true}
+        />
         <h2 className={styles.label}>{name}</h2>
         <button
-          className={styles.arrow}
+          className={arrowClassname}
           onClick={toggle}
           data-testid="service-toggle"
         >
@@ -39,16 +50,20 @@ export default function ServiceSelect({
         <div className={styles.book}>
           <h3 className={styles.description}>Available Appointments</h3>
           <div className={styles.items}>
-            {available?.map((v, i) => (
-              <p
-                key={i}
-                className={styles.item}
-                data-testid="service-appointment"
-              >
-                <div className={styles.circle}>&nbsp;</div>
-                <span>{v}</span>
-              </p>
-            ))}
+            {!available ? (
+              <small>loading...</small>
+            ) : (
+              available?.map((v, i) => (
+                <p
+                  key={i}
+                  className={styles.item}
+                  data-testid="service-appointment"
+                >
+                  <span className={styles.circle}>&nbsp;</span>
+                  <span>{v}</span>
+                </p>
+              ))
+            )}
           </div>
           <button className={styles.action}>Book Now</button>
         </div>
