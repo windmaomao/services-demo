@@ -37,7 +37,8 @@ export default function ServiceSelect({
           <div className={styles.items}>
             {available?.map((v, i) => (
               <p key={i} className={styles.item}>
-                {v}
+                <div className={styles.circle}>&nbsp;</div>
+                <span>{v}</span>
               </p>
             ))}
           </div>

@@ -20,9 +20,9 @@ export default function HomePage() {
         experience by providing eat to book service appointments from the
         comfort of your own home!
       </p>
-      <button className={styles.action}>
-        <Link href="/services">Get Started</Link>
-      </button>
+      <Link href="/services">
+        <button className={styles.action}>Get Started</button>
+      </Link>
     </div>
   );
 }

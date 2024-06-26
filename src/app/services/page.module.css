@@ -13,10 +13,3 @@
   font-weight: 700;
   color: var(--primary-color);
 }
-
-.list {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
